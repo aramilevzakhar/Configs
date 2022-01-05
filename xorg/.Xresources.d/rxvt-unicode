@@ -14,20 +14,23 @@ URxvt.secondaryScroll:					0
 URxvt.boldFont:
 URxvt.secondaryWheel:						1
 URxvt*lineSpace:								0
-URxvt*title:										rxvt-unicode
+URxvt*title:										term
+
 !URxvt*font:                     -xos4-terminus-medium-r-normal-*-18-*-*-72-*-*-*-1
 URxvt*font:                     -xos4-terminus-medium-r-normal-*-18-*-*-72-*-*-*-1
-!URxvt*font:                     xft:monospace:10
-
-!URxvt*font:                     xft:Bront:11
+!URxvt*font:                     xft:monospace:9
+!URxvt*font:                     xft:bront:11
+!URxvt*font:                     xft:dejavu:11
+!URxvt.font:											xft:DejaVu Sans Mono:11
 !URxvt*font:										 xft:xos4 Terminus:size=16
+
 URxvt*depth:										32
 !URxvt*fading:									 10
 URxvt*fadeColor:								black
 URxvt.inputMethod:							ibus
 URxvt.preeditType:							OverTheSpot
-URxvt*transparent:							 true
-URxvt*shading:									 20
+!URxvt*transparent:							 true
+!URxvt*shading:									 20
 
 URxvt.keysym.Shift-Up:					command:\033]720;1\007
 URxvt.keysym.Shift-Down:				command:\033]721;1\007

@@ -5,37 +5,28 @@
 
 (setq-default truncate-lines 1)
 (add-to-list 'default-frame-alist '(foreground-color . "#c5c8c6"))
-(add-to-list 'default-frame-alist '(background-color . "#1d1f21"))
+(add-to-list 'default-frame-alist '(background-color . "#231f21"))
 
 ;(set-face-attribute 'default nil :height 100)
-(set-face-foreground 'font-lock-string-face "green")
-(set-face-foreground 'font-lock-comment-face "#116111")
+(set-face-foreground 'font-lock-string-face "#00ff7f")
+(set-face-foreground 'font-lock-comment-face "#555555")
 ;(set-face-attribute 'region nil :background "#a35588")
 
 (set-face-attribute 'lazy-highlight nil :background "green")
 (set-face-attribute 'lazy-highlight nil :foreground "black")
 (set-face-attribute 'lazy-highlight nil :foreground "black" :background "green")
 ;(set-face-attribute 'ivy-posframe nil :foreground "white" :background "DarkSlateBlue")
-
-
-
 ;(add-hook 'emacs-lisp-mode-hook
 ;          (lambda ()
 ;            (face-remap-add-relative
 ;             'mode-line '((:foreground "#f1f1f1" :background "#414141") mode-line))))
-
-
 ;(set-face-background 'modeline "#4477aa")
-
-
-
 ; Disable GUI components
 (tooltip-mode      -1)
 (menu-bar-mode     -1) ;; отключаем графическое меню
 (tool-bar-mode     -1) ;; отключаем tool-bar
 (scroll-bar-mode   -1) ;; отключаем полосу прокрутки
 (blink-cursor-mode -1) ;; курсор не мигает
-
 
 (setq use-dialog-box     nil) ;; никаких графических диалогов и окон - все через минибуфер
 (setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
@@ -68,21 +59,16 @@
 ;; (if (system-is-windows)
 ;;  (add-to-list 'load-path win-init-path)
 (add-to-list 'load-path "~/.emacs.d/lisp")
-
-
 (let ((default-directory "~/.emacs.d/lisp"))
 	(normal-top-level-add-subdirs-to-load-path))
-
 (require 'org) ;; Вызвать org-mode
 (global-set-key "\C-ca" 'org-agenda) ;; поределение клавиатурных комбинаций для внутренних
 (global-set-key "\C-cb" 'org-iswitchb) ;; подрежимов org-mode
 (global-set-key "\C-cl" 'org-store-link)
 (add-to-list 'auto-mode-alist '("\\.org$" . Org-mode)) ;; ассоциируем *.org файлы с org-mode
-
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
-;;
 ;; Show-paren-mode settings
 (show-paren-mode t) ;; включить выделение выражений между {},[],()
 (setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
@@ -211,8 +197,8 @@
 (setq make-backup-files					nil)
 (setq auto-save-default					nil)
 (setq auto-save-list-file-name	        nil)
-(setq split-width-threshold             nil)
-(setq split-height-threshold              0)
+;(setq split-width-threshold             nil)
+;(setq split-height-threshold              0)
 (put 'upcase-region 'disabled           nil)
 
 ;;line of numbers
@@ -250,7 +236,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(sudoku zenburn-theme solarized-theme molokai-theme jedi ivy hc-zenburn-theme evil ac-inf-ruby)))
+   '(nasm-mode sudoku zenburn-theme solarized-theme molokai-theme jedi ivy hc-zenburn-theme evil ac-inf-ruby)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -258,6 +244,7 @@
  ;; If there is more than one, they won't work right.
  '(completions-annotations ((t (:inherit italic :background "black"))))
  '(completions-common-part ((t (:foreground "dark magenta"))))
+ '(fringe ((t nil)))
  '(isearch ((t (:background "aquamarine" :foreground "black"))))
  '(ivy-current-match ((t (:extend t :background "spring green" :foreground "black"))))
  '(ivy-minibuffer-match-face-1 ((t (:background "gold"))))
@@ -265,8 +252,12 @@
  '(ivy-minibuffer-match-face-3 ((t (:background "cyan" :foreground "black" :weight normal))))
  '(ivy-minibuffer-match-highlight ((t (:background "cyan"))))
  '(lazy-highlight ((t (:background "light gray" :foreground "black"))))
+ '(line-number ((t (:inherit (shadow default) :foreground "white"))))
+ '(line-number-major-tick ((t (:background "grey75" :weight bold))))
+ '(line-number-minor-tick ((t (:background "grey55" :weight bold))))
  '(minibuffer-prompt ((t (:foreground "spring green"))))
- '(mode-line ((t (:background "gray10" :foreground "spring green" :box nil))))
+ '(mode-line ((t (:background "gray3" :foreground "spring green"))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "black" :foreground "grey80" :weight light))))
  '(org-agenda-filter-category ((t (:inherit nil))))
  '(popup-face ((t (:inherit default :background "gray21" :foreground "white smoke"))))
  '(popup-menu-selection-face ((t (:inherit default :background "cyan" :foreground "black"))))
@@ -275,11 +266,15 @@
  '(popup-summary-face ((t (:inherit popup-face :foreground "dimgray"))))
  '(popup-tip-face ((t (:background "gray21" :foreground "light gray"))))
  '(region ((t (:extend t :background "DodgerBlue1"))))
- '(secondary-selection ((t (:extend t :background "magenta" :foreground "black")))))
+ '(secondary-selection ((t (:extend t :background "magenta" :foreground "black"))))
+ '(vertical-border ((((type tty)) (:inherit mode-line-inactive)))))
 
 ;(set-face-attribute 'default nil :font "monospace" :height 160)
 
 
 
+(setq auto-mode-alist (cons '
+              ("\\.ASM$" . asm-mode)
+                     auto-mode-alist))
 
-
+ 
