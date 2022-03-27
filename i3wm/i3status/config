@@ -12,7 +12,7 @@ general {
         interval = 5
 }
 
-#order += "ipv6"
+order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -36,7 +36,7 @@ volume master {
 wireless _first_ {
 	#format_up = "W: (%quality at %essid) %ip"
 	format_up = "W:%quality"
-	format_down = ""
+	format_down = "no IPv4"
 }
 
 #mem {
@@ -51,23 +51,23 @@ ethernet _first_ {
 }
 
 battery all {
-    last_full_capacity = true
+  last_full_capacity = true
 	format = "%status %percentage %remaining"
 }
 
 disk "/" {
-	format = "%avail"
+    format = "disk %avail"
 }
 
 load {
-	format = "%1min"
+	format = "load %1min"
 }
 
 memory {
-	#format = "%used | %available"
-	#threshold_degraded = "1G"
-	#format_degraded = "MEMORY < %available"
-    format = "%used"
+  #format = "%used | %available"
+  #threshold_degraded = "1G"
+  #format_degraded = "MEMORY < %available"
+  format = "ram %used"
 }
 
 tztime local {

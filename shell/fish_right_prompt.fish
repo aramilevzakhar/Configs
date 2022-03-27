@@ -1,4 +1,3 @@
-#!/bin/bash
 
 function fish_right_prompt
     set -l cmd_status $status
